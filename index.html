@@ -17,10 +17,11 @@
 	</head>
 
 	<body>
-		<div>
+		<div class="cajaAzul">
 			<h1>< CALCULADORA ></h1>
 		</div>
-		<div>
+
+		<div class="cajaNormal">
 			<h2>Ingrese su expresión matemática:</h2>
 			<ul>
 				<li>Suma: +</li>
@@ -29,8 +30,11 @@
 				<li>Division: /</li>
 			</ul>
 		</div>
-		<div>
-			<!--Aqui irá el forms-->
+
+		<div class="cajaFormu">
+			<form action='cgi-bin/calculadora.pl' method='GET'>
+			<input type='text' name='expresion'>
+			<input type='submit' value='Calcular'>
 		</div>
 		
 	</body>

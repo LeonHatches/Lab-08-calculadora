@@ -1,4 +1,43 @@
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 0px;
+    margin: 0;
+    padding: 0px;
+}
+
+h1 {
+	font-size: 50px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+ul {
+	text-align: center;
+}
+
+li {
+	text-align: center;
+	font-size: 20px;
+}
+
+.cajaAzul {
+	background-color: #11213d;
+	color: white;
+	margin: 0;
+	padding: 5%;
+}
+
+.cajaNormal {
+	background-color: white;
+	color: #1c1c1c;
+	margin: 0;
+	padding: 5%;
+}
+
+.cajaFormu {
+	padding: 5%;
+	text-align: center;
+	margin: 0;
 }
