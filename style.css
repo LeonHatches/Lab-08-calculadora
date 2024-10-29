@@ -10,16 +10,27 @@ h1 {
 }
 
 h2 {
+	color: #11213d;
 	font-size: 30px;
 }
 
-ul {
+table {
+	width: 100%;
+	border-collapse: collapse;
 	text-align: center;
 }
 
-li {
-	text-align: center;
-	font-size: 20px;
+tr, td {
+	border: 1px solid #11213d;
+}
+
+th {
+	background-color: #11213d;
+	color: white;
+}
+
+td {
+	font-size: 30px;
 }
 
 .cajaAzul {
@@ -37,7 +48,7 @@ li {
 }
 
 .cajaFormu {
-	padding: 5%;
+	padding: 10%;
 	text-align: center;
-	margin: 0;
+	margin-bottom: 10%;
 }
