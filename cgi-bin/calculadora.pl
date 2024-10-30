@@ -1,17 +1,19 @@
-#!/usr/bin/perl->
+#!/Strawberry/perl/bin/perl.exe
 
 # Para mi local
 #/Strawberry/perl/bin/perl.exe
+#/usr/bin/perl
 
 use strict;
 use warnings;
 use CGI;
+use utf8;
 
 my $cgi = CGI->new;
 my $expresion = $cgi->param('expresion');
 my $resultado;
 
-if ($expresion =~ m/(.\d)+(.\d)/)
+if ($expresion =~ m/(.)\+(.)/)
 {
 	$resultado = $1 + $2;
 }
@@ -22,7 +24,6 @@ print<<BLOCK;
 <html>
 	<head>
 		<!--Extensión para caracteres especiales-->
-		<meta charset="utf-8">
 
 		<!--fuente de letra-->
 		<link
@@ -31,7 +32,7 @@ print<<BLOCK;
 			type="text/css">
 
 		<!--CSS-->
-		<link rel = "stylesheet" type = "text/css" href = "style.css">
+		<link rel = "stylesheet" type = "text/css" href = "/css/style.css">
 
 		<title>Calculadora</title>
 	</head>
@@ -57,7 +58,7 @@ print<<BLOCK;
 		</div>
 
 		<div class="cajaFormu">
-			<form action='cgi-bin/calculadora.pl' method='GET'>
+			<form action='calculadora.pl' method='GET'>
 			<input type='text' name='expresion' class="cajaTexto">
 			<input type='submit' value='CALCULAR' class="botonCalcular">
 		</div>
