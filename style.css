@@ -49,9 +49,8 @@ td {
 }
 
 .cajaFormu {
-	padding: 0% 10% 5%;
+	padding: 0% 10% 0%;
 	text-align: center;
-	margin-bottom: 10%;
 }
 
 .cajaTexto {
@@ -89,4 +88,22 @@ td {
 .botonCalcular:hover {
 	background-color: #11213d;
 	color: white;
+}
+
+.cajaResul {
+	padding: 5% 10% 1%;
+	text-align: center;
+	margin-bottom: 5%;
+	align-self: center;
+}
+
+.resultado {
+	border: solid 2px #11213d;
+	border-radius: 5px;
+	color: #11213d;
+	padding: 5px;
+	width: 25%;
+	min-height: 20px;
+	margin: 0 auto;
+	text-align: center;
 }
