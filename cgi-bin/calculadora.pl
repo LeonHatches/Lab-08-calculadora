@@ -2,7 +2,7 @@
 
 # Para mi local
 #/Strawberry/perl/bin/perl.exe
-#/usr/bin/perl
+#!/usr/bin/perl
 
 use strict;
 use warnings;
@@ -10,10 +10,12 @@ use CGI;
 use utf8;
 
 my $cgi = CGI->new;
+$cgi->charset('UTF-8');
+
 my $expresion = $cgi->param('expresion');
 my $resultado;
 
-if ($expresion =~ m/(.)\+(.)/)
+if ($expresion =~ m/(.+)\+(.+)/)
 {
 	$resultado = $1 + $2;
 }
@@ -23,8 +25,6 @@ print<<BLOCK;
 <!DOCTYPE html>
 <html>
 	<head>
-		<!--Extensión para caracteres especiales-->
-
 		<!--fuente de letra-->
 		<link
 			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
