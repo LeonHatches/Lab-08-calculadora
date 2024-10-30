@@ -45,10 +45,48 @@ td {
 	color: #1c1c1c;
 	margin: 0;
 	padding: 5%;
+	padding-bottom: 10px;
 }
 
 .cajaFormu {
-	padding: 10%;
+	padding: 0% 10% 5%;
 	text-align: center;
 	margin-bottom: 10%;
+}
+
+.cajaTexto {
+    color: #11213d;
+    width: 70%;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 10px;
+    padding-left: 20px;
+    border: 1px solid #11213d;
+    border-radius: 30px; 
+}
+
+.cajaTexto:focus {
+	outline: none;
+    border-color: #8da9d6;
+}
+
+.cajaTexto:hover {
+    box-shadow: 0px 0px 7px #8da9d6;
+}
+
+.botonCalcular {
+    background-color: white;
+    color: #11213d;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px 15px;
+    border: solid 2px #11213d;
+    border-radius: 30px;
+    transition: background-color 0.5s ease;
+}
+
+.botonCalcular:hover {
+	background-color: #11213d;
+	color: white;
 }
