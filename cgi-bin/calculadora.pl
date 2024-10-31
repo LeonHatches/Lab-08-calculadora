@@ -15,22 +15,28 @@ $cgi->charset('UTF-8');
 my $expresion = $cgi->param('expresion');
 my $resultado;
 
-if ($expresion =~ m/(\d+)([\*|\+])(\d+)/)
+while ($expresion =~ /(\d+)([\*|\+])(\d+)/)
 {
-	my $operando1 = $1;
-	my $operador = $2;
-	my $operando2 = $3;
+	if ($expresion =~ m/(\d+)([\*|\+])(\d+)/)
+	{ 
+		my $operando1 = $1;
+		my $operador = $2;
+		my $operando2 = $3;
 
-	if ($operador eq "*")
-	{
-		$resultado = $operando1 * $operando2;
-	}
+		if ($operador eq "*")
+		{
+			$resultado = $operando1 * $operando2;
+		}
 
-	elsif ($operador eq "+")
-	{
-		$resultado = $operando1 + $operando2;
+		elsif ($operador eq "+")
+		{
+			$resultado = $operando1 + $operando2;
+		}
+
+		$expresion =~ s/(\d+)([\*|\+])(\d+)/$resultado/g;
 	}
 }
+
 
 print $cgi->header('text/html');
 print<<BLOCK;
