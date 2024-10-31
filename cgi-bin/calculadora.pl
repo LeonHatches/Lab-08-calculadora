@@ -17,25 +17,56 @@ my $resultado;
 my $operando1;
 my $operando2;
 
-while ($expresion =~ m/(\d+\s*)\*(\s*\d+)/)
+while ($expresion =~ m/(\d+\s*)\/(\s*\d+)/)
 {
 	$operando1 = $1;
 	$operando2 = $2;
 	
-	$resultado = $operando1 * $operando2;
+	if ($operando1 eq 0 and $operando2 eq 0) {
+		last;
+	}
 
-	$expresion =~ s/(\d+\s*)\*(\s*\d+)/$resultado/;
+	$resultado = $operando1 / $operando2;
+
+	$expresion =~ s/(\d+\s*)\/(\s*\d+)/$resultado/;
 }
 
-while ($expresion =~ m/(\d+\s*)\+(\s*\d+)/)
-{
-	$operando1 = $1;
-	$operando2 = $2;
-	
-	$resultado = $operando1 + $operando2;
-
-	$expresion =~ s/(\d+\s*)\+(\s*\d+)/$resultado/;
+if ( $operando1 eq 0 and $operando2 eq 0 ) {
+	$resultado = 'Indeterminado';
 }
+
+else {
+	while ($expresion =~ m/(\d+\s*)\*(\s*\d+)/)
+	{
+		$operando1 = $1;
+		$operando2 = $2;
+		
+		$resultado = $operando1 * $operando2;
+
+		$expresion =~ s/(\d+\s*)\*(\s*\d+)/$resultado/;
+	}
+
+	while ($expresion =~ m/(\d+\s*)\+(\s*\d+)/)
+	{
+		$operando1 = $1;
+		$operando2 = $2;
+		
+		$resultado = $operando1 + $operando2;
+
+		$expresion =~ s/(\d+\s*)\+(\s*\d+)/$resultado/;
+	}
+
+	while ($expresion =~ m/(\d+\s*)\-(\s*\d+)/)
+	{
+		$operando1 = $1;
+		$operando2 = $2;
+		
+		$resultado = $operando1 - $operando2;
+
+		$expresion =~ s/(\d+\s*)\-(\s*\d+)/$resultado/;
+	}
+}
+
 
 
 
