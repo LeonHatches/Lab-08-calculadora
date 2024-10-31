@@ -15,9 +15,21 @@ $cgi->charset('UTF-8');
 my $expresion = $cgi->param('expresion');
 my $resultado;
 
-if ($expresion =~ m/(.+)\+(.+)/)
+if ($expresion =~ m/(\d+)([\*|\+])(\d+)/)
 {
-	$resultado = $1 + $2;
+	my $operando1 = $1;
+	my $operador = $2;
+	my $operando2 = $3;
+
+	if ($operador eq "*")
+	{
+		$resultado = $operando1 * $operando2;
+	}
+
+	elsif ($operador eq "+")
+	{
+		$resultado = $operando1 + $operando2;
+	}
 }
 
 print $cgi->header('text/html');
