@@ -1,7 +1,3 @@
-#!/Strawberry/perl/bin/perl.exe
-
-# Para mi local
-#/Strawberry/perl/bin/perl.exe
 #!/usr/bin/perl
 
 use strict;
@@ -13,22 +9,22 @@ my $cgi = CGI->new;
 $cgi->charset('UTF-8');
 
 my $expresion = $cgi->param('expresion');
-my $resultado;
+my $resultado = 0.0;
 my $operando1;
 my $operando2;
 
-while ($expresion =~ m/(\d+\s*)\/(\s*\d+)/)
+while ($expresion =~ m/(\d+[\.\d]*\s*)\/(\s*\d+[\.\d]*)/)
 {
 	$operando1 = $1;
 	$operando2 = $2;
 	
-	if ($operando1 eq 0 and $operando2 eq 0) {
+	if ($operando1 == 0 and $operando2 == 0) {
 		last;
 	}
 
-	$resultado = $operando1 / $operando2;
+	$resultado = $operando1 / ($operando2 * 1.0);
 
-	$expresion =~ s/(\d+\s*)\/(\s*\d+)/$resultado/;
+	$expresion =~ s/(\d+[\.\d]*\s*)\/(\s*\d+[\.\d]*)/$resultado/;
 }
 
 if ( $operando1 eq 0 and $operando2 eq 0 ) {
@@ -36,34 +32,34 @@ if ( $operando1 eq 0 and $operando2 eq 0 ) {
 }
 
 else {
-	while ($expresion =~ m/(\d+\s*)\*(\s*\d+)/)
+	while ($expresion =~ m/(\d+[\.\d]*\s*)\*(\s*\d+[\.\d]*)/)
 	{
 		$operando1 = $1;
 		$operando2 = $2;
 		
 		$resultado = $operando1 * $operando2;
 
-		$expresion =~ s/(\d+\s*)\*(\s*\d+)/$resultado/;
+		$expresion =~ s/(\d+[\.\d]*\s*)\*(\s*\d+[\.\d]*)/$resultado/;
 	}
 
-	while ($expresion =~ m/(\d+\s*)\+(\s*\d+)/)
+	while ($expresion =~ m/(\d+[\.\d]*\s*)\+(\s*\d+[\.\d]*)/)
 	{
 		$operando1 = $1;
 		$operando2 = $2;
 		
 		$resultado = $operando1 + $operando2;
 
-		$expresion =~ s/(\d+\s*)\+(\s*\d+)/$resultado/;
+		$expresion =~ s/(\d+[\.\d]*\s*)\+(\s*\d+[\.\d]*)/$resultado/;
 	}
 
-	while ($expresion =~ m/(\d+\s*)\-(\s*\d+)/)
+	while ($expresion =~ m/(\d+[\.\d]*\s*)\-(\s*\d+[\.\d]*)/)
 	{
 		$operando1 = $1;
 		$operando2 = $2;
 		
 		$resultado = $operando1 - $operando2;
 
-		$expresion =~ s/(\d+\s*)\-(\s*\d+)/$resultado/;
+		$expresion =~ s/(\d+[\.\d]*\s*)\-(\s*\d+[\.\d]*)/$resultado/;
 	}
 }
 
